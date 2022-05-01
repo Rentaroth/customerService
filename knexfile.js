@@ -1,6 +1,6 @@
 const path = require('path');
 
-require('dotenv').config({ path: path.resolve(__dirname, '../.env') });
+require('dotenv').config({ path: path.resolve(__dirname, '.env') });
 // const { dataBase: config } = require('./src/config');
 const BASE_PATH = path.join(__dirname, 'src', 'db');
 const { NODE_ENV, DBUSER, DBPASSWORD, DBHOST, DBNAME } = process.env;
