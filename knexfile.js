@@ -6,7 +6,7 @@ const BASE_PATH = path.join(__dirname, 'src', 'db');
 const { NODE_ENV, DBUSER, DBPASSWORD, DBHOST, DBNAME } = process.env;
 
 const connectionData = {
-  client: 'mysql',
+  client: 'mysql2',
   connection: {
     user: DBUSER,
     password: DBPASSWORD,
@@ -28,7 +28,7 @@ const testingData = {
   },
   useNullAsDefault: true,
   migrations: {
-    directory: path.join(BASE_PATH, 'migrations')
+    directory: path.join(BASE_PATH)
   },
   seeds: {
     directory: path.join(BASE_PATH, 'seeds')

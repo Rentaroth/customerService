@@ -6,6 +6,9 @@
   "scripts": {
     "start": "node index",
     "dev": "nodemon index",
+    "mig": "knex migrate:make",
+    "mig-up": "knex migrate:up",
+    "mig-down": "knex migrate:down",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -27,9 +30,11 @@
     "dotenv": "^16.0.0",
     "express": "^4.17.3",
     "express-validator": "^6.14.0",
+    "joi": "^17.6.0",
     "knex": "^1.0.3",
     "mysql": "^2.18.1",
-    "mysql2": "^2.3.3"
+    "mysql2": "^2.3.3",
+    "nanoid": "^3.3.4"
   },
   "devDependencies": {
     "concurrently": "^7.0.0",

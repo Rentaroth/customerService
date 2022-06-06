@@ -1,3 +1,4 @@
 module.exports = {
-    products: 'products'
+  products: 'Products',
+  users: 'Users',
 };

@@ -13,6 +13,7 @@ module.exports = () => {
 //router.use('/products', routes.products);
 router.use('/health', routes.health);
 router.use('/', routes.health);
+router.use('/users', routes.users);
 
 return router;
 };
