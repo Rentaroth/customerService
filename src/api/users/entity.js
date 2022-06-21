@@ -56,6 +56,7 @@ class Users {
     }
     return repository.update(id, payload);
   }
+  
   deleteUser() {
     return repository.erase(this.id);
   }

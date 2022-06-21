@@ -1,5 +1,3 @@
-
-   
 const router = require('express').Router(),
 routes = require('./src/api');
 
@@ -14,6 +12,7 @@ module.exports = () => {
 router.use('/health', routes.health);
 router.use('/', routes.health);
 router.use('/users', routes.users);
+router.use('/types', routes.types);
 
 return router;
 };

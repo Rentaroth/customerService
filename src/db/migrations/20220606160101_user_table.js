@@ -10,8 +10,7 @@ exports.up = function (knex) {
     table.integer('id_number');
     table.string('password');
     table.string('role_id');
-    table.dateTime('created_at');
-    table.dateTime('updated_at');
+    table.timestamps(true, true, false);
   });
 };
 
