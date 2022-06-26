@@ -1,25 +1,37 @@
-const Entity = require("./entity");
+const helper = require('./helper');
 
-const getProductById = async (req, res) => {
-  try {
+const getProducts = async (req, res) => {
+  if (req.params.id) {
     const { id } = req.params;
-
-    const productEntity = new Entity({
-      id,
-    });
-
-    const product = await productEntity.findById();
-
-    if (!product) throw new Error("PRODUCT_NOT_FOUND");
-
-    return res.send(products);
-
-  } catch (error) {
-    console.log("Error getting Product", error);
-    return res.status(404).json({ status: "Error getting Product" });
+    const result = await helper.getProducts(id);
+    return res.send(result).status(200);
   }
+  const result = await helper.getProducts();
+  return res.send(result).status(200);
+};
+
+const createNewProduct = async (req, res) => {
+  const { product } = req.body;
+  const result = await helper.createProduct(product);
+  return res.send(result).status(200);
+};
+
+const updateOneProduct = async (req, res) => {
+  const { id } = req.params;
+  const { data } = req.body;
+  await helper.updateProduct(id, data);
+  return res.send({ body: 'Done!' }).status(200);
+};
+
+const deleteAProduct = async (req, res) => {
+  const { id } = req.params;
+  await helper.deleteProduct(id);
+  return res.send({ body: 'Done!' }).status(200);
 };
 
 module.exports = {
-  getProductById,
+  getProducts,
+  createNewProduct,
+  updateOneProduct,
+  deleteAProduct,
 };

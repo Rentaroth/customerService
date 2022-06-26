@@ -8,7 +8,7 @@ const typeReading = async (req, res) => {
 
 const typeCreation = async (req, res) => {
   const { data } = req.body;
-  const result = await helper.createNewType(data.name);
+  const result = await helper.createNewType(data);
   return res.send(result).status(200);
 };
 
@@ -17,13 +17,13 @@ const typeUpdating = async (req, res) => {
   const { data } = req.body;
   const result = await helper.updateType(id, data);
   return res.send(result).status(200);
-}
+};
 
 const typeDeleting = async (req, res) => {
   const { id } = req.params;
   const result = await helper.deleteType(id);
   return res.send(result).status(200);
-}
+};
 
 module.exports = {
   typeReading,

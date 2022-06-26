@@ -1,13 +1,12 @@
 const db = require('../../db');
 const TABLE = require('../../db/tables');
 
-const get = async function () {
+const get = async function (id) {
+  if (id) {
+    const result = await db.select('*').from(TABLE.users).where({ id });
+    return result;
+  }
   const result = await db.select('*').from(TABLE.users);
-  return result;
-};
-
-const getById = async function (id) {
-  const result = await db(TABLE.users).where({ id });
   return result;
 };
 
@@ -28,7 +27,6 @@ const erase = async function (id) {
 
 module.exports = {
   get,
-  getById,
   create,
   update,
   erase,

@@ -1,11 +1,11 @@
 const typesRepository = require('./repository');
-const { customAlphabet } = require('nanoid');
-const nanoid = customAlphabet('1234567890', 10);
 
 class Types {
-  constructor(id, name) {
-    this.id = id;
-    this.name = name;
+  constructor(params) {
+    this.id = params.id;
+    this.name = params.name;
+    this.created_at = params.created_at;
+    this.updated_at = params.updated_at;
   }
 
   async getAll() {
@@ -14,28 +14,29 @@ class Types {
   }
 
   async getOne() {
-    const result = await typesRepository.read(this.id);
+    const { id } = this;
+    const result = await typesRepository.read(id);
     return result;
   }
 
   async createType() {
-    const { name } = this;
+    const { id, name, created_at, updated_at } = this;
     const payload = {
-      id: await nanoid(10),
+      id,
       name,
-      created_at: new Date(),
-      updated_at: new Date(),
+      created_at,
+      updated_at,
     };
-    return await typesRepository.create(payload);
+    return typesRepository.create(payload);
   }
 
   async updateType() {
-    const { id, name } = this;
+    const { id, name, updated_at } = this;
     const payload = {
       name,
-      updated_at: new Date(),
+      updated_at,
     };
-    return await typesRepository.update(id, payload);
+    return typesRepository.update(id, payload);
   }
 
   async deleteType() {

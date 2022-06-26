@@ -1,7 +1,5 @@
-const {
-  health
-} = require('./api');
+const { health } = require('./api');
 
 module.exports = {
-  health
+  health,
 };

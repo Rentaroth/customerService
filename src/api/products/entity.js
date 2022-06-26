@@ -1,4 +1,4 @@
-const Repository = require("./repository");
+const Repository = require('./repository');
 
 class Products {
   constructor(params) {
@@ -7,40 +7,42 @@ class Products {
     this.description = params.description;
     this.price = params.price;
     this.type = params.type;
-    this.createdAt = params.createdAt;
-    this.updatedAt = params.updatedAt;
-    this.deletedAt = params.deletedAt;
+    this.created_at = params.created_at;
+    this.updated_at = params.updated_at;
+    this.deleted_at = params.deleted_at;
     this.typeId = params.typeId;
   }
 
-  async findById() {
+  async find() {
     const { id } = this;
-    return await Repository.findById({ id });
+    if (id) {
+      console.log(id);
+      return await Repository.read(id);
+    }
+    return await Repository.read();
   }
 
   create() {
-    const {
-        id,
-        name,
-        description,
-        price,
-        type,
-        createdAt,
-        updatedAt,
-        deletedAt,
-        typeId
-    } = this;
+    const { id, name, description, price, type, created_at, updated_at } = this;
     return Repository.create({
-        id,
-        name,
-        description,
-        price,
-        type,
-        createdAt,
-        updatedAt,
-        deletedAt,
-        typeId
+      id,
+      name,
+      description,
+      price,
+      type,
+      created_at,
+      updated_at,
     });
+  }
+
+  update() {
+    const { id, name, description, price, type, updated_at } = this;
+    return Repository.update(id, { name, description, price, type, updated_at });
+  }
+
+  delete() {
+    const { id } = this;
+    return Repository.erase(id);
   }
 }
 

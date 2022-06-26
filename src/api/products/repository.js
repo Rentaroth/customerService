@@ -1,19 +1,39 @@
-const db = require("../../db");
-const TABLES = require("../../db/tables");
+const db = require('../../db');
+const TABLES = require('../../db/tables');
 
-const findById = async ({ id }) => {
-    const query = db
-      .select()
-      .from(TABLES.products)
-      .where({
-        id
-      });
-  
-    const [result] = await query;
-    
+const read = async (id) => {
+  if (id) {
+    const result = await db.select('*').from(TABLES.products).where({
+      id,
+    });
     return result;
-  };
+  }
+  const result = await db.select('*').from(TABLES.products);
+
+  return result;
+};
+
+const create = async (payload) => {
+  const result = await db(TABLES.products).insert(payload);
+
+  return result;
+};
+
+const update = async (id, payload) => {
+  const result = await db(TABLES.products).update(payload).where({
+    id,
+  });
+  return result;
+};
+
+const erase = async (id) => {
+  const result = await db(TABLES.products).del().where({ id });
+  return result;
+};
 
 module.exports = {
-  findById,
+  create,
+  read,
+  update,
+  erase,
 };

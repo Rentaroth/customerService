@@ -11,28 +11,28 @@ const connectionData = {
     user: DBUSER,
     password: DBPASSWORD,
     host: DBHOST,
-    database: DBNAME
+    database: DBNAME,
   },
   migrations: {
-    directory: path.join(BASE_PATH, 'migrations')
+    directory: path.join(BASE_PATH, 'migrations'),
   },
   seeds: {
-    directory: path.join(BASE_PATH, 'seeds')
-  }
+    directory: path.join(BASE_PATH, 'seeds'),
+  },
 };
 
 const testingData = {
   client: 'mysql2',
   connection: {
-    filename: ':memory:'
+    filename: ':memory:',
   },
   useNullAsDefault: true,
   migrations: {
-    directory: path.join(BASE_PATH)
+    directory: path.join(BASE_PATH),
   },
   seeds: {
-    directory: path.join(BASE_PATH, 'seeds')
-  }
+    directory: path.join(BASE_PATH, 'seeds'),
+  },
 };
 
 // We return sqlite connection data if the environment is test (from testing)
