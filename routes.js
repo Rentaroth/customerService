@@ -14,6 +14,7 @@ module.exports = () => {
   router.use('/users', routes.users);
   router.use('/types', routes.types);
   router.use('/products', routes.products);
+  router.use('/bills', routes.bills);
 
   return router;
 };
