@@ -24,7 +24,6 @@ const createNewType = async (data) => {
   });
 
   const validation = await validationSchema.validateAsync(data);
-  console.log(validation);
   if (validation) {
     const id = await nanoid(10);
     const created_at = new Date();
