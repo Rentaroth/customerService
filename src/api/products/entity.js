@@ -10,7 +10,7 @@ class Products {
     this.created_at = params.created_at;
     this.updated_at = params.updated_at;
     this.deleted_at = params.deleted_at;
-    this.typeId = params.typeId;
+    this.type_id = params.typeId;
   }
 
   async find() {
@@ -37,7 +37,13 @@ class Products {
 
   update() {
     const { id, name, description, price, type, updated_at } = this;
-    return Repository.update(id, { name, description, price, type, updated_at });
+    return Repository.update(id, {
+      name,
+      description,
+      price,
+      type,
+      updated_at,
+    });
   }
 
   delete() {
@@ -47,3 +53,4 @@ class Products {
 }
 
 module.exports = Products;
+
