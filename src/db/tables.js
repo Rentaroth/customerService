@@ -4,4 +4,5 @@ module.exports = {
   types: 'Types',
   bills: 'Bills',
   order: 'Orders',
+  books: 'Books',
 };

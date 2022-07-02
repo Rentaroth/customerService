@@ -4,6 +4,7 @@ const types = require('./food-type');
 const products = require('./products');
 const bills = require('./bills');
 const orders = require('./orders');
+const books = require('./books');
 
 module.exports = {
   health,
@@ -12,4 +13,6 @@ module.exports = {
   products,
   bills,
   orders,
+  books,
 };
+
