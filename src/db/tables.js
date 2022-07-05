@@ -5,4 +5,5 @@ module.exports = {
   bills: 'Bills',
   order: 'Orders',
   books: 'Books',
+  tables: 'Tables',
 };

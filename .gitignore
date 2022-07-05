@@ -106,3 +106,6 @@ dist
 # Docker Containers
 MySQL_Data/
 docker-compose.yml
+
+#.prettier
+.prettierrc

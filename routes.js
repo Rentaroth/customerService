@@ -17,6 +17,7 @@ module.exports = () => {
   router.use('/bills', routes.bills);
   router.use('/orders', routes.orders);
   router.use('/books', routes.books);
+  router.use('/tables', routes.tables);
 
   return router;
 };
